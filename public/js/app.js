@@ -11,8 +11,9 @@ weatherForm.addEventListener('submit',(e) =>{
 	
 	const location = search.value
 	
-	messageOne.textContent = 'Loading...'
-	messageTwo.textContent = ''
+	//messageTwo.textContent = 'Loading..'
+	messageOne.textContent = 'loading...'
+	
 	
 	
 	fetch('/weather?address=' + location).then((response) =>{
@@ -20,8 +21,9 @@ weatherForm.addEventListener('submit',(e) =>{
 			if(result.error)
 			messageOne.textContent = result.error
 			else{
-				messageOne.textContent =  result.temp
-				messageTwo.textContent = result.name
+				//messageTwo.textContent = result.name
+				messageOne.textContent =  "It is " + (result.temp - 273.15).toFixed(2) + '\xB0C. in' + result.name;
+				
 			}
 			
 			
